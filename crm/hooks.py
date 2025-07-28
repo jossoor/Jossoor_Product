@@ -162,6 +162,13 @@ doc_events = {
 		"before_validate": ["crm.api.demo.validate_user"],
 		"validate_reset_password": ["crm.api.demo.validate_reset_password"],
 	},
+	"CRM Lead": {
+        "before_insert": ["crm.duplicate_lead.check_duplicates"],
+        "after_insert": ["crm.duplicate_lead.append_to_original_lead"],
+        
+     
+    },
+
 }
 
 # Scheduled Tasks

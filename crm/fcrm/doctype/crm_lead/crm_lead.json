@@ -18,6 +18,9 @@
   "job_title",
   "source",
   "lead_owner",
+  "is_duplicate",
+  "duplicated_from",
+  "duplicate_leads",
   "person_tab",
   "salutation",
   "first_name",
@@ -119,7 +122,8 @@
    "fieldname": "mobile_no",
    "fieldtype": "Data",
    "label": "Mobile No",
-   "options": "Phone"
+   "options": "Phone",
+   "reqd": 1
   },
   {
    "fieldname": "phone",
@@ -325,13 +329,34 @@
    "label": "Net Total",
    "options": "currency",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_duplicate",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Is Duplicate"
+  },
+  {
+   "fieldname": "duplicated_from",
+   "fieldtype": "Link",
+   "label": "Duplicated From",
+   "link_filters": "[[\"CRM Lead\",\"is_duplicate\",\"=\",1]]",
+   "options": "CRM Lead"
+  },
+  {
+   "fieldname": "duplicate_leads",
+   "fieldtype": "Table",
+   "label": "Duplicate Leads",
+   "options": "Duplicate Lead Entry"
   }
  ],
  "grid_page_length": 50,
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-14 19:51:06.184569",
+ "modified": "2025-07-28 22:10:44.897419",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
