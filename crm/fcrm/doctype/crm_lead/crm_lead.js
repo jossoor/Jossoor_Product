@@ -70,3 +70,4 @@ frappe.ui.form.on("CRM Products", {
 		frm.trigger("update_total");
 	}
 });
+
