@@ -1,5 +1,5 @@
 app_name = "crm"
-app_title = "Frappe CRM"
+app_title = "Jossoor CRM"
 app_publisher = "Frappe Technologies Pvt. Ltd."
 app_description = "Kick-ass Open Source CRM"
 app_email = "shariq@frappe.io"
@@ -317,3 +317,14 @@ standard_dropdown_items = [
 		"is_standard": 1,
 	},
 ]
+
+
+fixtures = [
+    {
+        "dt": "Client Script",
+        "filters": [
+            ["name", "in", ["hide leads","Highlight Orginal lead has Duplicates"]]
+        ]
+    }
+]
+

@@ -1,32 +1,54 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-07-27 23:48:40.792509",
+ "creation": "2025-07-31 18:07:16.875726",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "lead",
-  "craeted_on"
+  "source",
+  "status",
+  "created_on",
+  "note"
  ],
  "fields": [
   {
    "fieldname": "lead",
    "fieldtype": "Link",
-   "label": "Lead ",
+   "label": "Lead",
    "options": "CRM Lead"
   },
   {
-   "fieldname": "craeted_on",
+   "fieldname": "created_on",
    "fieldtype": "Datetime",
-   "label": "Craeted On"
+   "label": "Created On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "label": "Note"
+  },
+  {
+   "fetch_from": "lead.source",
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fetch_from": "lead.status",
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "CRM Lead Status"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-07-27 23:51:56.900133",
+ "modified": "2025-08-04 15:48:06.023900",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "Duplicate Lead Entry",

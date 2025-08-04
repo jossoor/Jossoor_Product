@@ -11,10 +11,9 @@
  "engine": "InnoDB",
  "field_order": [
   "details",
-  "organization",
-  "website",
-  "territory",
+  "status",
   "industry",
+  "territory",
   "job_title",
   "source",
   "lead_owner",
@@ -27,6 +26,7 @@
   "last_name",
   "email",
   "mobile_no",
+  "created",
   "organization_tab",
   "section_break_uixv",
   "naming_series",
@@ -34,8 +34,10 @@
   "middle_name",
   "gender",
   "phone",
+  "original_lead",
   "column_break_dbsv",
-  "status",
+  "website",
+  "organization",
   "no_of_employees",
   "annual_revenue",
   "image",
@@ -101,6 +103,7 @@
    "fieldname": "status",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "CRM Lead Status",
    "reqd": 1,
@@ -159,8 +162,12 @@
   {
    "fieldname": "source",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Source",
-   "options": "CRM Lead Source"
+   "options": "CRM Lead Source",
+   "remember_last_selected_value": 1
   },
   {
    "fieldname": "industry",
@@ -189,8 +196,7 @@
   {
    "fieldname": "organization_tab",
    "fieldtype": "Tab Break",
-   "label": "Others",
-   "read_only": 1
+   "label": "Others"
   },
   {
    "fieldname": "organization",
@@ -346,17 +352,35 @@
    "options": "CRM Lead"
   },
   {
+   "columns": 5,
    "fieldname": "duplicate_leads",
    "fieldtype": "Table",
    "label": "Duplicate Leads",
    "options": "Duplicate Lead Entry"
+  },
+  {
+   "fieldname": "created",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Created On",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Lead has Duplicates",
+   "fieldname": "original_lead",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "Original Lead"
   }
  ],
  "grid_page_length": 50,
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-28 22:10:44.897419",
+ "modified": "2025-08-04 15:51:11.236076",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",

@@ -1,0 +1,24 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "CRM Lead",
+  "enabled": 1,
+  "modified": "2025-08-04 13:16:59.867962",
+  "module": "FCRM",
+  "name": "Highlight Orginal lead has Duplicates",
+  "script": "frappe.ui.form.on('CRM Lead', {\n  refresh(frm) {\n\n    if (frm.dashboard && frm.dashboard.wrapper) {\n      frm.dashboard.wrapper.find('.indicator').remove();\n    }\n\n    if (frm.doc.original_lead == 1) {\n      frm.dashboard.add_indicator(__('Has Duplicates'), 'orange');\n    }\n  }\n});",
+  "view": "List"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "CRM Lead",
+  "enabled": 1,
+  "modified": "2025-08-04 10:58:35.828448",
+  "module": "FCRM",
+  "name": "hide leads",
+  "script": "frappe.listview_settings['CRM Lead'] = {\n    onload: function (listview) {\n        frappe.after_ajax(() => {\n            // Prevent re-adding the filter\n            const existing_filters = listview.filter_area.get();\n            const already_filtered = existing_filters.some(f =>\n                f[0] === 'CRM Lead' &&\n                f[1] === 'is_duplicate' &&\n                f[2] === '!=' &&\n                f[3] === 1\n            );\n\n            if (!already_filtered) {\n                // Add filter to hide duplicates\n                listview.filter_area.clear();  // Optional: clear previous filters\n                listview.filter_area.add([\n                    ['CRM Lead', 'is_duplicate', '!=', 1]\n                ]);\n                listview.run();\n            }\n        });\n    }\n};",
+  "view": "List"
+ }
+]

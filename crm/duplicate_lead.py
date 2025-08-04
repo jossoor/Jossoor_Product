@@ -1,16 +1,47 @@
 import frappe
 from frappe.utils import now
 
+
+def normalize_egyptian_phone(number):
+    if not number:
+        return ""
+
+    arabic_to_english = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+    number = number.strip().replace(" ", "").replace("-", "")
+    number = number.translate(arabic_to_english)
+
+    # Now handle all common Egyptian number formats
+    if number.startswith("+20"):
+        return number
+    elif number.startswith("0020"):
+        return "+20" + number[4:]
+    elif number.startswith("20"):
+        return "+20" + number[2:]
+    elif number.startswith("0"):
+        return "+20" + number[1:]
+    elif len(number) == 10 and number.startswith("1"):
+        return "+20" + number
+    elif len(number) == 11 and number.startswith("01"):
+        return "+20" + number[1:]
+    else:
+        return number
+    
+
 # 🔹 Step 1: Check and mark duplicate
 def check_duplicates(doc, method):
     frappe.log_error(f"check_duplicates called for: {doc.name}", "DEBUG")
+    doc.phone = normalize_egyptian_phone(doc.phone)
+    doc.mobile_no = normalize_egyptian_phone(doc.mobile_no)
+    
+    frappe.log_error(f"Normalized phone: {doc.phone} | mobile: {doc.mobile_no}", "DEBUG")
+
 
     if getattr(doc.flags, "ignore_duplicate_check", False):
         return
 
     if not doc.phone and not doc.mobile_no:
         return
-
+    
     # Fetch oldest duplicate by phone or mobile_no
     duplicate_leads = frappe.get_all(
         "CRM Lead",
@@ -47,18 +78,19 @@ def append_to_original_lead(doc, method):
 
     try:
         original = frappe.get_doc("CRM Lead", doc.duplicated_from)
-
+        
         row = {
             "lead": doc.name,
-            "craeted_on": timestamp
-          
-            #"notes": "Auto-appended duplicate"
+            "created_on": timestamp,
+            "note": "Write Note"
+            
         }
-
+        
         original.append("duplicate_leads", row)
+        original.original_lead = 1
         original.save(ignore_permissions=True)
         frappe.db.commit()
-
+        
         frappe.log_error(f"Successfully appended: {row}", "Duplicate Append Log")
 
     except Exception as e:
