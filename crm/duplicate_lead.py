@@ -91,7 +91,13 @@ def append_to_original_lead(doc, method):
         original.save(ignore_permissions=True)
         frappe.db.commit()
         
-        frappe.log_error(f"Successfully appended: {row}", "Duplicate Append Log")
+        frappe.log_error(
+            title="Duplicate Append Success",
+            message=f"Appended duplicate {doc.name} to {original.name}"
+        )
 
-    except Exception as e:
-        frappe.log_error(f"Failed to append duplicate: {str(e)}", "Lead Duplicate Append Error")
+    except Exception:
+        frappe.log_error(
+            title="Lead Duplicate Append Error",
+            message=frappe.get_traceback()
+        )

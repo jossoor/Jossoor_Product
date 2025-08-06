@@ -352,7 +352,6 @@
    "options": "CRM Lead"
   },
   {
-   "columns": 5,
    "fieldname": "duplicate_leads",
    "fieldtype": "Table",
    "label": "Duplicate Leads",
@@ -380,7 +379,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-04 15:51:11.236076",
+ "modified": "2025-08-05 18:17:27.355622",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
@@ -388,8 +387,6 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -421,13 +418,19 @@
    "share": 1
   }
  ],
+ "quick_entry": 1,
  "row_format": "Dynamic",
  "sender_field": "email",
  "sender_name_field": "first_name",
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Green",
+   "title": "Qualified"
+  }
+ ],
  "title_field": "lead_name",
  "track_changes": 1
 }
