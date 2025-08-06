@@ -14,29 +14,34 @@
  ],
  "fields": [
   {
+   "columns": 1,
    "fieldname": "lead",
    "fieldtype": "Link",
    "label": "Lead",
    "options": "CRM Lead"
   },
   {
+   "columns": 2,
    "fieldname": "created_on",
    "fieldtype": "Datetime",
    "label": "Created On",
    "read_only": 1
   },
   {
+   "columns": 2,
    "fieldname": "note",
    "fieldtype": "Small Text",
    "label": "Note"
   },
   {
+   "columns": 1,
    "fetch_from": "lead.source",
    "fieldname": "source",
    "fieldtype": "Data",
    "label": "Source"
   },
   {
+   "columns": 1,
    "fetch_from": "lead.status",
    "fieldname": "status",
    "fieldtype": "Link",
@@ -48,7 +53,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-04 15:48:06.023900",
+ "modified": "2025-08-05 18:11:17.015365",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "Duplicate Lead Entry",
