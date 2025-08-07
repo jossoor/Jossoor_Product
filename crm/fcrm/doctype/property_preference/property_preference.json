@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-07 16:52:19.340779",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "property_preference_details_section",
+  "property_usage",
+  "property_type",
+  "space",
+  "noof_bathrooms",
+  "noof_bedrooms",
+  "floor",
+  "decoration_status",
+  "development_status",
+  "budget",
+  "payment"
+ ],
+ "fields": [
+  {
+   "fieldname": "property_preference_details_section",
+   "fieldtype": "Section Break",
+   "label": "Property Preference Details"
+  },
+  {
+   "fieldname": "property_usage",
+   "fieldtype": "Select",
+   "label": " Property Usage\u2028",
+   "options": "Residential\nCommercial"
+  },
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Select",
+   "label": "Property Type",
+   "options": "Appartment\nVilla\nStudio\nDuplex\nShop\nWarehouse\nBuilding\nOffice"
+  },
+  {
+   "description": "m\u00b2",
+   "fieldname": "space",
+   "fieldtype": "Float",
+   "label": "Space",
+   "placeholder": "m\u00b2"
+  },
+  {
+   "fieldname": "noof_bathrooms",
+   "fieldtype": "Data",
+   "label": "No.of Bathrooms"
+  },
+  {
+   "fieldname": "noof_bedrooms",
+   "fieldtype": "Data",
+   "label": "No.of Bedrooms"
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Data",
+   "label": "Floor"
+  },
+  {
+   "fieldname": "decoration_status",
+   "fieldtype": "Data",
+   "label": "Decoration status"
+  },
+  {
+   "fieldname": "development_status",
+   "fieldtype": "Data",
+   "label": "Development status"
+  },
+  {
+   "fieldname": "budget",
+   "fieldtype": "Float",
+   "label": "Budget"
+  },
+  {
+   "fieldname": "payment",
+   "fieldtype": "Select",
+   "label": "Payment",
+   "options": "Cash\nPaypal\nVisa"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-07 18:37:46.900156",
+ "modified_by": "Administrator",
+ "module": "FCRM",
+ "name": "Property Preference",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
