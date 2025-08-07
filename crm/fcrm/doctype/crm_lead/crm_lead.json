@@ -27,6 +27,9 @@
   "email",
   "mobile_no",
   "created",
+  "best_time_contacted",
+  "last_contacted",
+  "campaign",
   "organization_tab",
   "section_break_uixv",
   "naming_series",
@@ -60,7 +63,10 @@
   "first_response_time",
   "first_responded_on",
   "log_tab",
-  "status_change_log"
+  "status_change_log",
+  "tab_7_tab",
+  "property_preference_section",
+  "property_preference_details"
  ],
  "fields": [
   {
@@ -124,14 +130,14 @@
   {
    "fieldname": "mobile_no",
    "fieldtype": "Data",
-   "label": "Mobile No",
+   "label": "Phone",
    "options": "Phone",
    "reqd": 1
   },
   {
    "fieldname": "phone",
    "fieldtype": "Data",
-   "label": "Phone",
+   "label": "Other Phone",
    "options": "Phone"
   },
   {
@@ -305,6 +311,7 @@
   {
    "fieldname": "products_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Products"
   },
   {
@@ -341,7 +348,6 @@
    "fieldname": "is_duplicate",
    "fieldtype": "Check",
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Is Duplicate"
   },
   {
@@ -372,14 +378,46 @@
    "fieldtype": "Check",
    "hidden": 1,
    "in_standard_filter": 1,
-   "label": "Original Lead"
+   "label": "Parent Lead"
+  },
+  {
+   "fieldname": "best_time_contacted",
+   "fieldtype": "Time",
+   "label": "Best Time Contacted"
+  },
+  {
+   "fieldname": "last_contacted",
+   "fieldtype": "Datetime",
+   "label": "Last Contacted"
+  },
+  {
+   "fieldname": "campaign",
+   "fieldtype": "Link",
+   "label": "Campaign",
+   "options": "Campaign"
+  },
+  {
+   "fieldname": "tab_7_tab",
+   "fieldtype": "Tab Break",
+   "label": "Property Preference"
+  },
+  {
+   "fieldname": "property_preference_section",
+   "fieldtype": "Section Break",
+   "label": "Property Preference"
+  },
+  {
+   "fieldname": "property_preference_details",
+   "fieldtype": "Table",
+   "label": "Property Preference Details",
+   "options": "Property Preference"
   }
  ],
  "grid_page_length": 50,
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-05 18:17:27.355622",
+ "modified": "2025-08-07 18:43:21.393931",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
